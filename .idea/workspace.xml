@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3e59d66-3801-4fe2-9946-62ce402682a9" name="Default Changelist" comment="" />
+    <list default="true" id="c3e59d66-3801-4fe2-9946-62ce402682a9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdministrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdministrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Client/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/administration/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/administration/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +21,9 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -124,14 +135,19 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1R19OIB6uNrqe71hoofiDVf5tyk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Entity" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DAIS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Entity/Client" />
+      <recent name="$PROJECT_DIR$/src/Entity/Specialist" />
       <recent name="$PROJECT_DIR$/src/Entity/Administration" />
       <recent name="$PROJECT_DIR$/src/Service/Administration/Model/Entity" />
       <recent name="$PROJECT_DIR$/src/Entity" />
@@ -162,11 +178,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568823701693</updated>
-      <workItem from="1568823702843" duration="5610000" />
+      <workItem from="1568823702843" duration="10213000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
