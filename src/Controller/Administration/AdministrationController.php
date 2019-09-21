@@ -12,24 +12,19 @@ class AdministrationController extends AbstractController
     /**
      * @Route("/", name="administration")
      */
-    public function index(Request $request)
+    public function index()
     {
-        dump($request);
-
-        return $this->render('administration/index.html.twig', [
-            'controller_name' => 'AdministrationController',
-        ]);
+        return $this->render('administration/index.html.twig');
     }
 
     /**
      * @Route("/new", name="add-new-client")
      */
-    public function addNewVisitor(Request $request)
+    public function addNewClient(Request $request)
     {
         $clientName = $request->request->get("clientName");
 
         //TODO: Validation of the name (validation class)
-
 
         return new JsonResponse(['client'=>'wa']);
     }
