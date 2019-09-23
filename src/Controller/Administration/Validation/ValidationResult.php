@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Administration;
+namespace App\Controller\Administration\Validation;
 
 class ValidationResult
 {

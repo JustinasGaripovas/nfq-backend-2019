@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3e59d66-3801-4fe2-9946-62ce402682a9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/Administration/Validation/ValidationResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Administration/Validation/ValidatorInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdministrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Administration/AdministrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Administration/AdministrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Administration/AdministrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Administration/Validation/ValidationResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Administration/Validation/ValidationResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Administration/Validation/ValidatorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Administration/Validation/ValidatorInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Administration/Validation/Validators/ClientValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Administration/Validation/Validators/ClientValidator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Client/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Specialist/Specialist.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Specialist/Specialist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/administration/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/administration/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +21,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -136,7 +144,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Controller/Administration/Validation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DAIS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -176,7 +184,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568823701693</updated>
-      <workItem from="1568823702843" duration="11398000" />
+      <workItem from="1568823702843" duration="15529000" />
+      <workItem from="1569230851804" duration="1775000" />
+      <workItem from="1569235093474" duration="5224000" />
     </task>
     <servers />
   </component>
@@ -188,7 +198,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
