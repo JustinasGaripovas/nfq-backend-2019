@@ -36,9 +36,9 @@ Client information leaks (Before mentioned not functioning login system )
 
 ### Requirements
 
-LAMP stack
-PHP7.2
-Composer
+LAMP stack \n
+PHP7.2 \n
+Composer \n
 
 ### Prerequisites
 
