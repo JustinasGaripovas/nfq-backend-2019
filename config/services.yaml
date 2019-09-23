@@ -22,7 +22,7 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         exclude:
-            - - '../src/Controller/Administration/Response/*'
+            - '../src/Controller/Administration/Response/*'
             - '../src/Controller/Administration/Validation/ValidationResult.php'
         tags: ['controller.service_arguments']
 

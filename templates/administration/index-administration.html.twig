@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('JavaScript/notiflix-1.9.1.css') }}"></link>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('JavaScript/notiflix-1.9.1.js') }}"></script>
+
+    <script>
+
+        $("#clientForm").submit(function (event) {
+            let clientName = $('#clientName').val()
+            addClient(clientName);
+            screenToggle();
+            event.preventDefault()
+        })
+
+        $("#buttonMain").click(function (event) {
+            screenToggle();
+        })
+
+
+        function screenToggle() {
+            $("#clientForm").toggle();
+            $("#buttonMain").toggle();
+        }
+
+        function addClient(name) {
+            var ajaxAddClient = $.ajax({
+                url: '{{ path('add-new-client') }}',
+                type: 'POST',
+                data: {clientName: name},
+                dataType: 'json',
+                async: false,
+            });
+
+            ajaxAddClient.done(function (data) {
+
+                if(data['error'] == "NONE")
+                    Notiflix.Report.Success( 'Success', data['message']);
+                else
+                    Notiflix.Notify.Failure(data['message']);
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                Notiflix.Notify.Failure("Failure to send request.");
+            });
+        }
+
+    </script>
+{% endblock %}
+
+{% block body %}
+
+    <div id="buttonMain" style="display:flex;justify-content:center;align-items:center;width:100vw;height:100vh">
+        <div>
+            <button class="btn btn-outline-primary" style="font-size: 3rem"> Nauja registracija</button>
+        </div>
+    </div>
+
+
+    {{ include('administration/_new_client_form.html.twig')}}
+
+
+{% endblock %}
+

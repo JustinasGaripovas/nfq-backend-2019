@@ -18,11 +18,15 @@ class StorageSystem
         $connection = null;
     }
 
-    public function get_all_visitation_tasks()
+    public function get_visitation_tasks($limit = 10)
     {
         $connection = $this->open_database_connection();
 
-        $result = $connection->query('SELECT * FROM visitation_task');
+        $result = $connection->query("
+            SELECT visitation_task.created_at, client.name FROM visitation_task 
+            INNER JOIN client ON client.id = visitation_task.user_id
+            ORDER BY visitation_task.created_at DESC LIMIT " . $limit);
+
 
         $posts = [];
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -47,8 +51,48 @@ class StorageSystem
 
         $result = $connection->query($sql);
 
+        $lastId = $connection->lastInsertId();
+
         $this->close_database_connection($connection);
 
-        return $result->errorCode();
+        return ['error'=>$result->errorCode(), 'lastId' => $lastId];
+    }
+
+    public function add_new_visitation_task($data)
+    {
+        $connection = $this->open_database_connection();
+
+        $createdAt = $data['createdAt'];
+        $updatedAt = $data['updatedAt'];
+        $clientId = $data['clientId'];
+
+        $sql = "INSERT INTO visitation_task (created_at, updated_at, user_id) VALUES ('" . $createdAt->format('Y-m-d H:i:s') . "','" . $updatedAt->format('Y-m-d H:i:s') . "','" . $clientId . "');";
+
+        $result = $connection->query($sql);
+        $lastId = $connection->lastInsertId();
+
+        $this->close_database_connection($connection);
+
+        return ['error'=>$result->errorCode(), 'lastId' => $lastId];
+    }
+
+    public function get_user_by_id($user_id)
+    {
+        $connection = $this->open_database_connection();
+
+        $result = $connection->query("
+            SELECT visitation_task.created_at, client.name FROM visitation_task 
+            INNER JOIN client ON client.id = visitation_task.user_id
+            WHERE client.id = ". $user_id ."
+            ORDER BY visitation_task.created_at DESC LIMIT 1");
+
+        $posts = [];
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $posts[] = $row;
+        }
+
+        $this->close_database_connection($connection);
+
+        return ['error'=>$result->errorCode(), 'list'=>$posts];
     }
 }

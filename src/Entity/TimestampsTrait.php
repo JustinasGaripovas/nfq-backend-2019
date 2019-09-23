@@ -21,6 +21,13 @@ trait TimestampsTrait
     protected $updatedAt;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_actice", type="boolean")
+     */
+    protected $isActive;
+
+    /**
      * @ORM\PrePersist
      * @ORM\PostPersist
      */

@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jumbotron{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('JavaScript/notiflix-1.9.1.css') }}"></link>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('JavaScript/notiflix-1.9.1.js') }}"></script>
+
+    <script>
+
+        $("#clientForm").submit(function (event) {
+            let clientName = $('#clientName').val()
+            addClient(clientName);
+            screenToggle();
+            event.preventDefault()
+        })
+
+        $("#buttonMain").click(function (event) {
+            screenToggle();
+        })
+
+
+        function screenToggle() {
+            $("#clientForm").toggle();
+            $("#buttonMain").toggle();
+        }
+
+        function addClient(name) {
+            var ajaxAddClient = $.ajax({
+                url: '{{ path('add-new-client') }}',
+                type: 'POST',
+                data: {clientName: name},
+                dataType: 'json',
+                async: false,
+            });
+
+            ajaxAddClient.done(function (data) {
+
+                if(data['error'] == "NONE")
+                    Notiflix.Report.Success( 'Success', data['message']);
+                else
+                    Notiflix.Notify.Failure(data['message']);
+
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                Notiflix.Notify.Failure("Failure to send request.");
+            });
+        }
+
+    </script>
+{% endblock %}
+
+{% block body %}
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>created_at</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for task in visitationList %}
+            <tr>
+                <td>{{ task['name'] }}</td>
+                <td>{{ task['created_at']|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}
+

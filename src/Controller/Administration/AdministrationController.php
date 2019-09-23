@@ -4,8 +4,9 @@ namespace App\Controller\Administration;
 
 use App\Controller\Administration\Response\InvalidDataResponse;
 use App\Controller\Administration\Response\SuccessResponse;
+use App\Entity\Administration\Enum\VisitationStatus;
+use App\Entity\Administration\VisitationTask;
 use App\Entity\Client\Client;
-use App\Entity\VisitationTask;
 use App\Storage\StorageSystem;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,18 +18,21 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class AdministrationController extends AbstractController
 {
     /**
-     * @Route("/", name="administration")
+     * @Route("/", name="index-administration")
      */
     public function index()
     {
-        return $this->render('administration/index.html.twig');
+        return $this->render('administration/index-administration.html.twig');
     }
 
     /**
      * @Route("/new", name="add-new-client")
      */
-    public function addNewClient(Request $request, UserPasswordEncoderInterface $encoder, StorageSystem $storageSystem )
+    public function addNewClient(Request $request, UserPasswordEncoderInterface $encoder, StorageSystem $storageSystem)
     {
+
+        //todo: This place can only be accessed by AJAX
+
         $user = new Client();
         $visitation = new VisitationTask();
 
@@ -40,12 +44,40 @@ class AdministrationController extends AbstractController
         $user->setName($clientName);
         $user->persistTimestamps();
 
-        $errorCode = $storageSystem->add_new_client($user->returnArray());
+        $databaseResponse= $storageSystem->add_new_client($user->returnArray());
 
-        if ($errorCode != "00000")
-            return new SuccessResponse('Client saved.');
+        if ($databaseResponse['error'] == "00000") {
+
+            $visitation->setUserId($databaseResponse['lastId']);
+            $visitation->persistTimestamps();
+            $visitation->setStatus(VisitationStatus::NEW);
+
+            $databaseResponse = $storageSystem->add_new_visitation_task($visitation->returnArray());
+
+            if($databaseResponse['error'] == "00000")
+                return new SuccessResponse('Client and visitation saved saved.');
+            else
+                return new InvalidDataResponse('Visitation task data not accepted.');
+
+        }
         else
             return new InvalidDataResponse('Client data not accepted.');
     }
+
+
+    /**
+     * @Route("/jumbotron", name="index-jumbotron")
+     */
+    public function indexJumbotron(Request $request, StorageSystem $storageSystem)
+    {
+        $visitationList = [];
+
+        $visitationList = $storageSystem->get_visitation_tasks();
+
+        return $this->render('administration/index-jumbotron.html.twig', [
+            'visitationList' => $visitationList
+        ]);
+    }
+
 
 }
