@@ -54,6 +54,12 @@ Setup of .env file.
 php bin/console doctrine:migration:migrate
 ```
 
+OR
+
+```
+php bin/console doctrine:schema:update --force
+```
+
 ## Deployment
 
 Project is not currently ready to be deployed.
