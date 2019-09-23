@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\This;
 
 trait TimestampsTrait
 {
@@ -23,7 +24,7 @@ trait TimestampsTrait
     /**
      * @var boolean
      *
-     * @ORM\Column(name="is_actice", type="boolean")
+     * @ORM\Column(name="is_active", type="boolean", options={"default" : 1})
      */
     protected $isActive;
 
@@ -36,6 +37,7 @@ trait TimestampsTrait
         $this->updatedAt = new \DateTime('now');
         if ($this->createdAt === null) {
             $this->createdAt = new \DateTime('now');
+            $this->isActive = true;
         }
     }
 
@@ -53,5 +55,17 @@ trait TimestampsTrait
     public function getUpdatedAt(): \DateTime
     {
         return $this->updatedAt;
+    }
+
+    public function setCreatedAt($date)
+    {
+        $this->createdAt = $date;
+        return null;
+    }
+
+    public function setUpdatedAt($date)
+    {
+        $this->updatedAt = $date;
+        return null;
     }
 }

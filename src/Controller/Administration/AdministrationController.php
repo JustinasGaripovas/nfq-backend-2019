@@ -9,9 +9,7 @@ use App\Entity\Administration\VisitationTask;
 use App\Entity\Client\Client;
 use App\Storage\StorageSystem;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -20,9 +18,11 @@ class AdministrationController extends AbstractController
     /**
      * @Route("/", name="index-administration")
      */
-    public function index()
+    public function index(StorageSystem $storageSystem)
     {
-        return $this->render('administration/index-administration.html.twig');
+        return $this->render('administration/index-administration.html.twig',[
+            'specialistList' => $storageSystem->get_specialist()['list']
+        ]);
     }
 
     /**
@@ -30,7 +30,6 @@ class AdministrationController extends AbstractController
      */
     public function addNewClient(Request $request, UserPasswordEncoderInterface $encoder, StorageSystem $storageSystem)
     {
-
         //todo: This place can only be accessed by AJAX
 
         $user = new Client();
@@ -38,6 +37,8 @@ class AdministrationController extends AbstractController
 
         $clientName = $request->request->get("clientName");
         $clientPlainPassword = $request->request->get("clientPassword");
+        $clientSpecialist = $request->request->get("clientSpecialist");
+
 
         $encoded = $encoder->encodePassword($user, $clientPlainPassword);
         $user->setPassword($encoded);
@@ -49,6 +50,7 @@ class AdministrationController extends AbstractController
         if ($databaseResponse['error'] == "00000") {
 
             $visitation->setUserId($databaseResponse['lastId']);
+            $visitation->setSpecialistId($clientSpecialist);
             $visitation->persistTimestamps();
             $visitation->setStatus(VisitationStatus::NEW);
 
@@ -72,7 +74,7 @@ class AdministrationController extends AbstractController
     {
         $visitationList = [];
 
-        $visitationList = $storageSystem->get_visitation_tasks();
+        $visitationList = $storageSystem->get_visitation_tasks_new();
 
         return $this->render('administration/index-jumbotron.html.twig', [
             'visitationList' => $visitationList

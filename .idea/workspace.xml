@@ -2,18 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3e59d66-3801-4fe2-9946-62ce402682a9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/JavaScript/notiflix-1.9.1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/JavaScript/notiflix-1.9.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/administration/index-administration.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/jQuery/jquery.autocomplete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Administration/Response/DatabaseRefuseResponse.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/SpecialistSecurityController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190923180642.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190923185047.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190923185656.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Security/SpecialistLoginFormAuthenticator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/specialist/index-specialist-tasks.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Administration/AdministrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Administration/AdministrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SpecialistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SpecialistController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Administration/VisitationTask.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Administration/VisitationTask.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Client/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Specialist/Specialist.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Specialist/Specialist.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/TimestampsTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TimestampsTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/SpecialistRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SpecialistRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Storage/StorageSystem.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Storage/StorageSystem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/administration/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/specialist/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/specialist/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/administration/_new_client_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/administration/_new_client_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/administration/index-administration.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/administration/index-administration.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/administration/index-jumbotron.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/administration/index-jumbotron.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/specialist/index.html.twig" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +42,11 @@
     </execution>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -140,27 +159,32 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1R19OIB6uNrqe71hoofiDVf5tyk" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/JavaScript" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/administration" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/administration" />
+      <recent name="$PROJECT_DIR$/src/Controller/Administration/Response" />
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/JavaScript" />
       <recent name="$PROJECT_DIR$/src/Controller/Administration/Validation" />
-      <recent name="$PROJECT_DIR$/src/Entity" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/specialist" />
       <recent name="$PROJECT_DIR$/src/Controller/Administration" />
       <recent name="$PROJECT_DIR$/src/Entity/Client" />
       <recent name="$PROJECT_DIR$/src/Entity/Specialist" />
       <recent name="$PROJECT_DIR$/src/Entity/Administration" />
-      <recent name="$PROJECT_DIR$/src/Service/Administration/Model/Entity" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -187,7 +211,7 @@
       <updated>1568823701693</updated>
       <workItem from="1568823702843" duration="15529000" />
       <workItem from="1569230851804" duration="1775000" />
-      <workItem from="1569235093474" duration="12227000" />
+      <workItem from="1569235093474" duration="25333000" />
     </task>
     <servers />
   </component>
@@ -206,5 +230,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

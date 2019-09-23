@@ -4,10 +4,12 @@ namespace App\Entity\Specialist;
 
 use App\Entity\TimestampsTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SpecialistRepository")
+ * @UniqueEntity(fields={"name"}, message="There is already an account with this name")
  */
 class Specialist implements UserInterface
 {
@@ -51,7 +53,7 @@ class Specialist implements UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        return ['ROLE_USER'];
     }
 
     /**
@@ -64,7 +66,7 @@ class Specialist implements UserInterface
      */
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
+        $this->password;
     }
 
     /**
@@ -86,7 +88,7 @@ class Specialist implements UserInterface
      */
     public function getUsername()
     {
-        // TODO: Implement getUsername() method.
+        $this->name;
     }
 
     /**
@@ -118,4 +120,16 @@ class Specialist implements UserInterface
 
         return $this;
     }
+
+    public function returnArray()
+    {
+        return [
+            'clientName'=>$this->name,
+            'clientPassword'=>$this->password,
+            'createdAt'=>$this->createdAt,
+            'updatedAt'=>$this->updatedAt
+            ,
+        ];
+    }
+
 }
