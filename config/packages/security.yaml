@@ -3,14 +3,26 @@ security:
     encoders:
         App\Entity\Client\Client:
             algorithm: argon2i
+        App\Entity\Specialist\Specialist:
+            algorithm: argon2i
     providers:
-        in_memory: { memory: null }
+        users:
+            entity:
+                class: 'App\Entity\Specialist\Specialist'
+                property: 'name'
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
+            guard:
+                authenticators:
+                    - App\Security\SpecialistLoginFormAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

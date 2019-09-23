@@ -4,11 +4,14 @@ namespace App\Entity\Client;
 
 use App\Entity\TimestampsTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
+ * @UniqueEntity(fields={"name"}, message="There is already an account with this name")
  */
+
 class Client implements UserInterface
 {
     use TimestampsTrait;

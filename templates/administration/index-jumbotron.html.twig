@@ -54,27 +54,30 @@
 
 {% block body %}
 
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>name</th>
-            <th>created_at</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for task in visitationList %}
+    <div class="container pt-5">
+        <table class="table">
+            <thead>
             <tr>
-                <td>{{ task['name'] }}</td>
-                <td>{{ task['created_at']|date('Y-m-d H:i:s') }}</td>
+                <th>Client</th>
+                <th>Specialist</th>
+                <th>Waiting since</th>
             </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for task in visitationList %}
+                <tr>
+                    <td>{{ task['name'] }}</td>
+                    <td>{{ task['specName'] }}</td>
+                    <td>{{ task['created_at']|date('H:i') }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
 
 

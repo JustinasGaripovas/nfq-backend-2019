@@ -29,6 +29,11 @@ class VisitationTask
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $specialistId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,8 @@ class VisitationTask
             'createdAt'=>$this->createdAt,
             'updatedAt'=>$this->updatedAt,
             'clientId'=>$this->userId,
+            'status'=>$this->status,
+            'specialistId'=>$this->specialistId,
         ];
     }
 
@@ -63,6 +70,18 @@ class VisitationTask
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getSpecialistId(): ?int
+    {
+        return $this->specialistId;
+    }
+
+    public function setSpecialistId(int $specialistId): self
+    {
+        $this->specialistId = $specialistId;
 
         return $this;
     }

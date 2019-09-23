@@ -11,8 +11,16 @@
     </div>
     <div class="form-group">
         <label for="psw"><b>Password</b></label>
-        <input class="form-control" type="password" placeholder="Enter Password" name="clientPassword" required>
+        <input id="clientPassword" class="form-control" type="password" placeholder="Enter Password" name="clientPassword" required>
+    </div>
+    <div class="form-group">
+        <label for="spec"><b>Specialistas</b></label>
+        <select name="clientSpecialist" id="clientSpecialist">
+            {% for object in specialistList %}
+                <option value="{{object['id']}}">{{object['name']}}</option>
+            {% endfor %}
+        </select>
     </div>
 
-    <button class="btn btn-primary">Send</button>
+    <button class="btn btn-primary d-block" style="width: 100%;">Send</button>
 </form>

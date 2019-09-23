@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Welcome{% endblock %}
+{% block title %}Active tasks{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ asset('JavaScript/notiflix-1.9.1.css') }}"></link>
@@ -8,14 +8,12 @@
 
 {% block javascripts %}
     <script src="{{ asset('JavaScript/notiflix-1.9.1.js') }}"></script>
-    <script src="{{ asset('jQuery/jquery.autocomplete.js') }}"></script>
 
     <script>
+
         $("#clientForm").submit(function (event) {
             let clientName = $('#clientName').val()
-            let clientPassword = $('#clientPassword').val()
-            let clientSpecialist = $('#clientSpecialist').val()
-            addClient(clientName,clientPassword,clientSpecialist);
+            addClient(clientName);
             screenToggle();
             event.preventDefault()
         })
@@ -24,16 +22,17 @@
             screenToggle();
         })
 
+
         function screenToggle() {
             $("#clientForm").toggle();
             $("#buttonMain").toggle();
         }
 
-        function addClient(name,password,specialist) {
+        function addClient(name) {
             var ajaxAddClient = $.ajax({
                 url: '{{ path('add-new-client') }}',
                 type: 'POST',
-                data: {clientName: name, clientPassword:password, clientSpecialist: specialist},
+                data: {clientName: name},
                 dataType: 'json',
                 async: false,
             });
@@ -55,16 +54,35 @@
 
 {% block body %}
 
-    <div id="buttonMain" style="display:flex;justify-content:center;align-items:center;width:100vw;height:100vh">
-        <div>
-            <button class="btn btn-outline-primary" style="font-size: 3rem"> Nauja registracija</button>
-        </div>
-    </div>
-
     <div class="container pt-5">
-        {{ include('administration/_new_client_form.html.twig')}}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Client</th>
+                <th>Specialist</th>
+                <th>Waiting since</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for task in visitationList %}
+                <tr>
+                    <td>{{ task['name'] }}</td>
+                    <td>{{ task['specName'] }}</td>
+                    <td>{{ task['created_at']|date('H:i') }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-lg" href="{{ path('specialist-start-visitation', {'id': task['visitId']}) }}">Priimti</a>
+                        <a class="btn btn-info btn-lg" href="{{ path('specialist-end-visitation', {'id': task['visitId']}) }}">Užbaigti</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="2">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
-
 
 {% endblock %}
 
